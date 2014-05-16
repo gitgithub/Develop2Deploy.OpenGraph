@@ -1,0 +1,14 @@
+﻿Name: Develop2Deploy.OpenGraph
+AntiForgery: enabled
+Author: Abhishek Luv
+Website: http://www.develop2deploy.com
+Version: 1.0
+OrchardVersion: 1.8
+Category: Content
+FeatureName: Develop2Deploy.OpenGraph
+FeatureDescription: Open Graph Meta Tags module for Orchard websites.
+Features:
+    Develop2Deploy.TwitterOpenGraph:
+		Name: Develop2Deploy.TwitterOpenGraph
+        Description: Twitter Card Meta Tags module for Orchard websites.
+		Category: Content
