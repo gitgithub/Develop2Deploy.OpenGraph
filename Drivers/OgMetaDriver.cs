@@ -28,46 +28,46 @@ namespace Develop2Deploy.OpenGraph.Drivers
         {
             if (displayType != "Detail") return null;
             var resourceManager = _waContextAccessor.GetContext().Resolve<IResourceManager>();
-            if (!String.IsNullOrWhiteSpace(part.OgTitle))
+            if (!String.IsNullOrWhiteSpace(part.Title))
             {
                 var ogTitle = new MetaEntry {Name = "ogtitle"};
                 ogTitle.AddAttribute("property", "og:title");
-                ogTitle.AddAttribute("content", part.OgTitle);
+                ogTitle.AddAttribute("content", part.Title);
                 resourceManager.SetMeta(ogTitle);
             }
-            if (!String.IsNullOrWhiteSpace(part.OgType))
+            if (!String.IsNullOrWhiteSpace(part.Type))
             {
                 var ogType = new MetaEntry {Name = "ogtype"};
                 ogType.AddAttribute("property", "og:type");
-                ogType.AddAttribute("content", part.OgType);
+                ogType.AddAttribute("content", part.Type);
                 resourceManager.SetMeta(ogType);
             }
-            if (!String.IsNullOrWhiteSpace(part.OgUrl))
+            if (!String.IsNullOrWhiteSpace(part.Url))
             {
                 var ogUrl = new MetaEntry {Name = "ogurl"};
                 ogUrl.AddAttribute("property", "og:url");
-                ogUrl.AddAttribute("content", part.OgUrl);
+                ogUrl.AddAttribute("content", part.Url);
                 resourceManager.SetMeta(ogUrl);
             }
-            if (!String.IsNullOrWhiteSpace(part.OgImgUrl))
+            if (!String.IsNullOrWhiteSpace(part.ImgUrl))
             {
                 var ogImgUrl = new MetaEntry {Name = "ogimg"};
                 ogImgUrl.AddAttribute("property", "og:image");
-                ogImgUrl.AddAttribute("content", part.OgImgUrl);
+                ogImgUrl.AddAttribute("content", part.ImgUrl);
                 resourceManager.SetMeta(ogImgUrl);
             }
-            if (!String.IsNullOrWhiteSpace(part.OgDescription))
+            if (!String.IsNullOrWhiteSpace(part.Description))
             {
                 var ogDesc = new MetaEntry {Name = "ogdesc"};
                 ogDesc.AddAttribute("property", "og:description");
-                ogDesc.AddAttribute("content", part.OgDescription);
+                ogDesc.AddAttribute("content", part.Description);
                 resourceManager.SetMeta(ogDesc);
             }
-            if (!String.IsNullOrWhiteSpace(part.OgSiteName))
+            if (!String.IsNullOrWhiteSpace(part.SiteName))
             {
                 var ogSiteName = new MetaEntry {Name = "ogsitename"};
                 ogSiteName.AddAttribute("property", "og:site_name");
-                ogSiteName.AddAttribute("content", part.OgSiteName);
+                ogSiteName.AddAttribute("content", part.SiteName);
                 resourceManager.SetMeta(ogSiteName);
             }
             return null;
@@ -85,6 +85,26 @@ namespace Develop2Deploy.OpenGraph.Drivers
         {
             updater.TryUpdateModel(part, Prefix, null, null);
             return Editor(part, shapeHelper);
+        }
+
+        protected override void Exporting(OgMetaPart part, ExportContentContext context)
+        {
+            context.Element(part.PartDefinition.Name).SetAttributeValue("Title", part.Record.Title);
+            context.Element(part.PartDefinition.Name).SetAttributeValue("Type", part.Record.Type);
+            context.Element(part.PartDefinition.Name).SetAttributeValue("Url", part.Record.Url);
+            context.Element(part.PartDefinition.Name).SetAttributeValue("ImgUrl", part.Record.ImgUrl);
+            context.Element(part.PartDefinition.Name).SetAttributeValue("Description", part.Record.Description);
+            context.Element(part.PartDefinition.Name).SetAttributeValue("SiteName", part.Record.SiteName);
+        }
+
+        protected override void Importing(OgMetaPart part, ImportContentContext context)
+        {
+            part.Record.Title = context.Attribute(part.PartDefinition.Name, "Title");
+            part.Record.Type = context.Attribute(part.PartDefinition.Name, "Type");
+            part.Record.Url = context.Attribute(part.PartDefinition.Name, "Url");
+            part.Record.ImgUrl = context.Attribute(part.PartDefinition.Name, "ImgUrl");
+            part.Record.Description = context.Attribute(part.PartDefinition.Name, "Description");
+            part.Record.SiteName = context.Attribute(part.PartDefinition.Name, "SiteName");
         }
     }
 }

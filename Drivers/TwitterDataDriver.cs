@@ -3,6 +3,7 @@ using Develop2Deploy.OpenGraph.Models;
 using Orchard;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Drivers;
+using Orchard.ContentManagement.Handlers;
 using Orchard.Environment.Extensions;
 using Orchard.UI.Resources;
 
@@ -96,6 +97,26 @@ namespace Develop2Deploy.OpenGraph.Drivers
         {
             updater.TryUpdateModel(part, Prefix, null, null);
             return Editor(part, shapeHelper);
+        }
+
+        protected override void Exporting(TwitterDataPart part, ExportContentContext context)
+        {
+            context.Element(part.PartDefinition.Name).SetAttributeValue("TwitterCard", part.Record.TwitterCard);
+            context.Element(part.PartDefinition.Name).SetAttributeValue("TwitterSite", part.Record.TwitterSite);
+            context.Element(part.PartDefinition.Name).SetAttributeValue("TwitterTitle", part.Record.TwitterTitle);
+            context.Element(part.PartDefinition.Name).SetAttributeValue("TwitterDesc", part.Record.TwitterDesc);
+            context.Element(part.PartDefinition.Name).SetAttributeValue("Creator", part.Record.Creator);
+            context.Element(part.PartDefinition.Name).SetAttributeValue("ImageUrl", part.Record.ImageUrl);
+        }
+
+        protected override void Importing(TwitterDataPart part, ImportContentContext context)
+        {
+            part.Record.TwitterCard = context.Attribute(part.PartDefinition.Name, "TwitterCard");
+            part.Record.TwitterSite = context.Attribute(part.PartDefinition.Name, "TwitterSite");
+            part.Record.TwitterTitle = context.Attribute(part.PartDefinition.Name, "TwitterTitle");
+            part.Record.TwitterDesc = context.Attribute(part.PartDefinition.Name, "TwitterDesc");
+            part.Record.Creator = context.Attribute(part.PartDefinition.Name, "Creator");
+            part.Record.ImageUrl = context.Attribute(part.PartDefinition.Name, "ImageUrl");
         }
     }
 }
