@@ -1,0 +1,54 @@
+﻿@model  Develop2Deploy.OpenGraph.Models.TwitterDataPart
+
+<fieldset>
+    <legend>Twitter Data Card Meta Tags</legend>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.TwitterCard)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.TwitterCard, new {@class = "large text"})
+        @Html.ValidationMessageFor(model => model.TwitterCard)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.TwitterSite)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.TwitterSite, new {@class = "large text"})
+        @Html.ValidationMessageFor(model => model.TwitterSite)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.TwitterTitle)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.TwitterTitle, new {@class = "large text"})
+        @Html.ValidationMessageFor(model => model.TwitterTitle)
+    </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.TwitterDesc)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.TwitterDesc)
+        @Html.ValidationMessageFor(model => model.TwitterDesc)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Creator)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Creator, new {@class = "large text"})
+        @Html.ValidationMessageFor(model => model.Creator)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ImageUrl)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.ImageUrl, new {@class = "large text"})
+        @Html.ValidationMessageFor(model => model.ImageUrl)
+    </div>
+
+</fieldset>

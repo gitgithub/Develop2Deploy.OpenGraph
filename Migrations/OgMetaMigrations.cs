@@ -21,7 +21,7 @@ namespace Develop2Deploy.OpenGraph.Migrations
                     .Column<string>("SiteName", column => column.Unlimited())
                 );
 
-            ContentDefinitionManager.AlterPartDefinition("OgMetaPart", 
+            ContentDefinitionManager.AlterPartDefinition("OgMetaPart",
                 cfg => cfg
                     .WithDescription("Open Graph Meta Tags")
                     .Attachable());
