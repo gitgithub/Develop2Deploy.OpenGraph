@@ -8,21 +8,21 @@ namespace Develop2Deploy.OpenGraph.Models
     public class OgMetaRecord : ContentPartRecord
     {
         [DataType(DataType.Text)]
-        public virtual string OgTitle { get; set; }
+        public virtual string Title { get; set; }
 
         [DataType(DataType.Text)]
-        public virtual string OgType { get; set; }
+        public virtual string Type { get; set; }
 
         [DataType(DataType.Url)]
-        public virtual string OgUrl { get; set; }
+        public virtual string Url { get; set; }
 
         [DataType(DataType.ImageUrl)]
-        public virtual string OgImgUrl { get; set; }
+        public virtual string ImgUrl { get; set; }
 
         [DataType(DataType.Text)]
-        public virtual string OgDescription { get; set; }
+        public virtual string Description { get; set; }
 
         [DataType(DataType.Text)]
-        public virtual string OgSiteName { get; set; }
+        public virtual string SiteName { get; set; }
     }
 }

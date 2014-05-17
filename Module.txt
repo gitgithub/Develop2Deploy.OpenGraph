@@ -6,9 +6,9 @@ Version: 1.0
 OrchardVersion: 1.8
 Category: Content
 FeatureName: Develop2Deploy.OpenGraph
-FeatureDescription: Open Graph Meta Tags module for Orchard websites.
+Description: Open Graph Meta Tags module for Orchard websites.
 Features:
-    Develop2Deploy.TwitterOpenGraph:
-		Name: Develop2Deploy.TwitterOpenGraph
-        Description: Twitter Card Meta Tags module for Orchard websites.
+    Develop2Deploy.TwitterDataCard:
+		Name: Develop2Deploy.TwitterDataCard
+        Description: Twitter Data Card Meta Tags module for Orchard websites.
 		Category: Content

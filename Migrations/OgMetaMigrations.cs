@@ -13,15 +13,18 @@ namespace Develop2Deploy.OpenGraph.Migrations
             SchemaBuilder.CreateTable("OgMetaRecord",
                 table => table
                     .ContentPartRecord()
-                    .Column<string>("OgTitle", column => column.Unlimited())
-                    .Column<string>("OgType", column => column.Unlimited())
-                    .Column<string>("OgUrl", column => column.Unlimited())
-                    .Column<string>("OgImgUrl", column => column.Unlimited())
-                    .Column<string>("OgDescription", column => column.Unlimited())
-                    .Column<string>("OgSiteName", column => column.Unlimited())
+                    .Column<string>("Title", column => column.Unlimited())
+                    .Column<string>("Type", column => column.Unlimited())
+                    .Column<string>("Url", column => column.Unlimited())
+                    .Column<string>("ImgUrl", column => column.Unlimited())
+                    .Column<string>("Description", column => column.Unlimited())
+                    .Column<string>("SiteName", column => column.Unlimited())
                 );
 
-            ContentDefinitionManager.AlterPartDefinition("OgMetaPart", cfg => cfg.Attachable());
+            ContentDefinitionManager.AlterPartDefinition("OgMetaPart", 
+                cfg => cfg
+                    .WithDescription("Open Graph Meta Tags")
+                    .Attachable());
 
             return 1;
         }

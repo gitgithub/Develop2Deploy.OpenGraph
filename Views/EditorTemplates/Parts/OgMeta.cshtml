@@ -1,0 +1,54 @@
+﻿@model Develop2Deploy.OpenGraph.Models.OgMetaPart
+
+<fieldset>
+    <legend>Open Graph Meta Data</legend>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.OgTitle)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.OgTitle, new {@class = "large text"})
+        @Html.ValidationMessageFor(model => model.OgTitle)
+    </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.OgType)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.OgType, new { @class = "large text" })
+        @Html.ValidationMessageFor(model => model.OgType)
+    </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.OgUrl)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.OgUrl, new { @class = "large text" })
+        @Html.ValidationMessageFor(model => model.OgUrl)
+    </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.OgImgUrl)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.OgImgUrl, new { @class = "large text" })
+        @Html.ValidationMessageFor(model => model.OgImgUrl)
+    </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.OgDescription)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.OgDescription)
+        @Html.ValidationMessageFor(model => model.OgDescription)
+    </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.OgSiteName)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.OgSiteName, new { @class = "large text" })
+        @Html.ValidationMessageFor(model => model.OgSiteName)
+    </div>
+
+</fieldset>
