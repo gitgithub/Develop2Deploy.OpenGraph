@@ -1,6 +1,10 @@
 # Open Graph Orchard CMS Module
 ---------------------
 
+[Download this Module directly from the Orchard Gallery Website](https://gallery.orchardproject.net/List/Modules/Orchard.Module.Develop2Deploy.OpenGraph)
+
+
+
 ## This module has two features
 
 1. Open Graph Meta Tags Part which can be added to any Content Type ex. Page, BlogPost
