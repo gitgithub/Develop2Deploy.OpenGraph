@@ -7,7 +7,11 @@
         @Html.LabelFor(model => model.TwitterCard)
     </div>
     <div class="editor-field">
-        @Html.TextBoxFor(model => model.TwitterCard, new {@class = "large text"})
+        @Html.DropDownList("TwitterCard", new List<SelectListItem>
+   {
+       new SelectListItem { Text = "summary", Value = "summary"}
+   },"Select a Card Type")
+        <span class="hint">@T("Select Twitter Card Type")</span>
         @Html.ValidationMessageFor(model => model.TwitterCard)
     </div>
 
@@ -15,7 +19,8 @@
         @Html.LabelFor(model => model.TwitterSite)
     </div>
     <div class="editor-field">
-        @Html.TextBoxFor(model => model.TwitterSite, new {@class = "large text"})
+        @Html.TextBoxFor(model => model.TwitterSite, new {@class = "large text", @placeholder = "@yourwebsitehandler"})
+        <span class="hint">@T("Enter The Twitter Handler for your website")</span>
         @Html.ValidationMessageFor(model => model.TwitterSite)
     </div>
 
@@ -24,6 +29,7 @@
     </div>
     <div class="editor-field">
         @Html.TextBoxFor(model => model.TwitterTitle, new {@class = "large text"})
+        <span class="hint">@T("Title should be short and concise")</span>
         @Html.ValidationMessageFor(model => model.TwitterTitle)
     </div>
     
@@ -32,6 +38,7 @@
     </div>
     <div class="editor-field">
         @Html.TextAreaFor(model => model.TwitterDesc)
+        <span class="hint">@T("A description that concisely summarizes the content of the page, as appropriate for presentation within a Tweet")</span>
         @Html.ValidationMessageFor(model => model.TwitterDesc)
     </div>
 
@@ -39,7 +46,8 @@
         @Html.LabelFor(model => model.Creator)
     </div>
     <div class="editor-field">
-        @Html.TextBoxFor(model => model.Creator, new {@class = "large text"})
+        @Html.TextBoxFor(model => model.Creator, new {@class = "large text", @placeholder = "@creatorhandler"})
+        <span class="hint">@T("Enter The Twitter Handler of the creator. for e.g. @abhishekluvtwee")</span>
         @Html.ValidationMessageFor(model => model.Creator)
     </div>
 
@@ -48,6 +56,7 @@
     </div>
     <div class="editor-field">
         @Html.TextBoxFor(model => model.ImageUrl, new {@class = "large text"})
+        <span class="hint">@T("URL to a unique image representing the content of the page. The image must be a minimum size of 120px by 120px")</span>
         @Html.ValidationMessageFor(model => model.ImageUrl)
     </div>
 

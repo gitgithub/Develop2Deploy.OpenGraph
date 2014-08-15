@@ -9,13 +9,18 @@
     <div class="editor-field">
         @Html.TextBoxFor(model => model.Title, new {@class = "large text"})
         @Html.ValidationMessageFor(model => model.Title)
+        <span class="hint">@T("Page Title")</span>
     </div>
     
     <div class="editor-label">
         @Html.LabelFor(model => model.Type)
     </div>
     <div class="editor-field">
-        @Html.TextBoxFor(model => model.Type, new { @class = "large text" })
+        @Html.DropDownList("Type", new List<SelectListItem> { 
+            new SelectListItem { Text = "website", Value = "website" },
+            new SelectListItem { Text = "article", Value = "article"}         
+          }, "Select a Type")
+        <span class="hint">@T("Select a Type")</span>
         @Html.ValidationMessageFor(model => model.Type)
     </div>
     
@@ -24,6 +29,7 @@
     </div>
     <div class="editor-field">
         @Html.TextBoxFor(model => model.Url, new { @class = "large text" })
+        <span class="hint">@T("Url")</span>
         @Html.ValidationMessageFor(model => model.Url)
     </div>
     
@@ -32,6 +38,7 @@
     </div>
     <div class="editor-field">
         @Html.TextBoxFor(model => model.ImgUrl, new { @class = "large text" })
+        <span class="hint">@T("Image Url for e.g. ")</span>
         @Html.ValidationMessageFor(model => model.ImgUrl)
     </div>
     
@@ -40,6 +47,7 @@
     </div>
     <div class="editor-field">
         @Html.TextAreaFor(model => model.Description)
+        <span class="hint">@T("Open Graph Description")</span>
         @Html.ValidationMessageFor(model => model.Description)
     </div>
     
@@ -47,7 +55,8 @@
         @Html.LabelFor(model => model.SiteName)
     </div>
     <div class="editor-field">
-        @Html.TextBoxFor(model => model.SiteName, new { @class = "large text" })
+        @Html.TextBoxFor(model => model.SiteName, new { @class = "large text", Value = @WorkContext.CurrentSite.SiteName })
+        <span class="hint">@T("Your site name is") : @T(WorkContext.CurrentSite.SiteName)</span>
         @Html.ValidationMessageFor(model => model.SiteName)
     </div>
 
