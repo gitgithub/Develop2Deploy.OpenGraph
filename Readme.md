@@ -22,10 +22,6 @@
 
 ![View Source](http://i.imgur.com/ZOQEIEf.png)
 
-### Demo Website :
-
-[Open Graph Orchard CMS Module Demo Website](http://orchardopengraph.azurewebsites.net/have-you-done-your-homework)
-
 ### Validating the Meta Data :
 
 [Open Graph Meta Tags Validation](https://developers.facebook.com/tools/debug/) 
